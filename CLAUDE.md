@@ -9,3 +9,4 @@
 @rules/formatting.md
 @rules/database.md
 @rules/deployment.md
+@rules/dependencies.md

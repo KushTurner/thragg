@@ -42,6 +42,7 @@ Check if `./CLAUDE.md` exists.
   @rules/formatting.md
   @rules/database.md
   @rules/deployment.md
+  @rules/dependencies.md
   ```
 - If it **does** exist, check whether it already imports thragg rules (look for `@rules/commits.md`). If not, append:
   ```
@@ -57,6 +58,7 @@ Check if `./CLAUDE.md` exists.
   @rules/formatting.md
   @rules/database.md
   @rules/deployment.md
+  @rules/dependencies.md
   ```
 
 **3. Merge settings.json**
