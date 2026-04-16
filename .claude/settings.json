@@ -1,5 +1,13 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(ls*)",
+      "Bash(cat *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)"
+    ],
     "deny": [
       "Bash(git push --force*)",
       "Bash(git push -f *)",
