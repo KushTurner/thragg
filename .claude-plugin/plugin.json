@@ -5,5 +5,8 @@
   "author": {
     "name": "KushTurner"
   },
-  "repository": "https://github.com/KushTurner/thragg"
+  "repository": "https://github.com/KushTurner/thragg",
+  "skills": "plugins/skills",
+  "agents": "plugins/agents",
+  "hooks": "plugins/hooks"
 }
