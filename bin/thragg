@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+set -e
+
+THRAGG_CONFIG=".thragg.json"
+
+usage() {
+  echo "Usage: thragg <command>"
+  echo ""
+  echo "Commands:"
+  echo "  init    Set up thragg for the current project"
+  echo "  list    Show configured repos for this project"
+}
+
+cmd_init() {
+  if [[ -f "$THRAGG_CONFIG" ]]; then
+    read -r -p ".thragg.json already exists. Overwrite? [y/N] " confirm
+    [[ "$confirm" =~ ^[Yy]$ ]] || exit 0
+  fi
+
+  echo "Setting up thragg for this project."
+  echo ""
+
+  read -r -p "Project name: " project_name
+
+  repos=()
+  while true; do
+    echo ""
+    read -r -p "Repo name (leave blank to finish): " repo_name
+    [[ -z "$repo_name" ]] && break
+    read -r -p "Path to $repo_name: " repo_path
+    # Expand ~ manually
+    repo_path="${repo_path/#\~/$HOME}"
+    repos+=("{\"name\": \"$repo_name\", \"path\": \"$repo_path\"}")
+  done
+
+  if [[ ${#repos[@]} -eq 0 ]]; then
+    echo "No repos added. Exiting."
+    exit 1
+  fi
+
+  # Build JSON
+  repos_json=$(printf '%s,\n    ' "${repos[@]}")
+  repos_json="[
+    ${repos_json%,*}
+  ]"
+
+  cat > "$THRAGG_CONFIG" <<EOF
+{
+  "project": "$project_name",
+  "repos": $repos_json
+}
+EOF
+
+  echo ""
+  echo "Created $THRAGG_CONFIG"
+}
+
+cmd_list() {
+  if [[ ! -f "$THRAGG_CONFIG" ]]; then
+    echo "No .thragg.json found. Run: thragg init"
+    exit 1
+  fi
+
+  echo "Repos configured in this project:"
+  echo ""
+  python3 -c "
+import json, sys
+with open('$THRAGG_CONFIG') as f:
+    config = json.load(f)
+print(f\"  Project: {config['project']}\")
+print()
+for r in config['repos']:
+    print(f\"  {r['name']}: {r['path']}\")
+"
+}
+
+case "${1:-}" in
+  init) cmd_init ;;
+  list) cmd_list ;;
+  *) usage ;;
+esac
