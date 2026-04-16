@@ -1,0 +1,9 @@
+{
+  "name": "thragg",
+  "description": "Sync shared Claude agent rules and settings into any repo",
+  "version": "1.0.0",
+  "author": {
+    "name": "KushTurner"
+  },
+  "repository": "https://github.com/KushTurner/thragg"
+}

@@ -1,24 +1,28 @@
 # thragg
 
-Sync shared Claude agent config (rules, `CLAUDE.md`, `settings.json`) across multiple repos from a single source of truth.
+A Claude Code plugin that syncs shared agent rules and settings into any repo.
 
 ## Install
 
-```bash
-./install.sh
-```
+Add the marketplace and install the plugin:
 
-This builds the binary and symlinks it to `/usr/local/bin/thragg`.
+```
+/plugin marketplace add KushTurner/thragg
+```
 
 ## Usage
 
-```bash
-cd ~/projects/my-repo
-thragg init
+Run this in any repo you want to set up:
+
+```
+/thragg:init
 ```
 
-Copies `CLAUDE.md`, `.claude/settings.json`, and `rules/` into the current directory.
+This will:
+- Copy shared `rules/` into the repo
+- Create or append to `CLAUDE.md` with the shared rule imports
+- Merge the shared `permissions` block into `.claude/settings.json`, preserving any existing config (e.g. MCP servers)
 
 ## Repo-specific settings
 
-To add allow/deny rules on top of the global baseline without them being overwritten, put them in `.claude/settings.local.json` in the target repo. Claude Code merges this automatically.
+To add allow/deny rules on top of the shared baseline without them being overwritten, put them in `.claude/settings.local.json`. Claude Code merges this automatically.
