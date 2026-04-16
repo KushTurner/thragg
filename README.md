@@ -12,36 +12,12 @@ This builds the binary and symlinks it to `/usr/local/bin/thragg`.
 
 ## Usage
 
-### 1. Initialize
-
-Run this once inside your thragg repo to configure which repos it manages:
-
 ```bash
-thragg init
+thragg apply ~/projects/repo1 ~/projects/repo2
 ```
 
-Creates a `.thragg.json` in the current directory with your project name and target repo paths. This file is local to your machine and not committed.
+Copies `CLAUDE.md`, `.claude/settings.json`, and `rules/` into each repo.
 
-### 2. Apply
+## Repo-specific settings
 
-Push your `CLAUDE.md`, `.claude/settings.json`, and `rules/` into every configured repo:
-
-```bash
-thragg apply
-```
-
-### 3. List
-
-Show the repos currently configured:
-
-```bash
-thragg list
-```
-
-## What gets copied
-
-| Source | Destination |
-|---|---|
-| `CLAUDE.md` | `<repo>/CLAUDE.md` |
-| `.claude/settings.json` | `<repo>/.claude/settings.json` |
-| `rules/` | `<repo>/rules/` |
+To add allow/deny rules on top of the global baseline without them being overwritten, put them in `.claude/settings.local.json` in the target repo. Claude Code merges this automatically.

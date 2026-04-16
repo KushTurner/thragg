@@ -1,25 +1,11 @@
 package main
 
 import (
-	"bufio"
-	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
 )
-
-const configFile = ".thragg.json"
-
-type Repo struct {
-	Name string `json:"name"`
-	Path string `json:"path"`
-}
-
-type Config struct {
-	Project string `json:"project"`
-	Repos   []Repo `json:"repos"`
-}
 
 func main() {
 	if len(os.Args) < 2 {
@@ -28,12 +14,12 @@ func main() {
 	}
 
 	switch os.Args[1] {
-	case "init":
-		cmdInit()
 	case "apply":
-		cmdApply()
-	case "list":
-		cmdList()
+		if len(os.Args) < 3 {
+			fmt.Fprintln(os.Stderr, "Usage: thragg apply <repo-path> [repo-path ...]")
+			os.Exit(1)
+		}
+		cmdApply(os.Args[2:])
 	default:
 		usage()
 		os.Exit(1)
@@ -44,74 +30,14 @@ func usage() {
 	fmt.Println("Usage: thragg <command>")
 	fmt.Println()
 	fmt.Println("Commands:")
-	fmt.Println("  init     Set up thragg for the current project")
-	fmt.Println("  apply    Copy CLAUDE.md and .claude/settings.json into each configured repo")
-	fmt.Println("  list     Show configured repos for this project")
+	fmt.Println("  apply <repo-path> [repo-path ...]   Copy CLAUDE.md, settings.json, and rules/ into each repo")
 }
 
-func cmdInit() {
-	if _, err := os.Stat(configFile); err == nil {
-		fmt.Print(".thragg.json already exists. Overwrite? [y/N] ")
-		var confirm string
-		fmt.Scanln(&confirm)
-		if strings.ToLower(confirm) != "y" {
-			return
-		}
-	}
-
-	scanner := bufio.NewScanner(os.Stdin)
-
-	fmt.Println("Setting up thragg for this project.")
-	fmt.Println()
-	fmt.Print("Project name: ")
-	scanner.Scan()
-	project := strings.TrimSpace(scanner.Text())
-
-	var repos []Repo
-	for {
-		fmt.Println()
-		fmt.Print("Repo name (leave blank to finish): ")
-		scanner.Scan()
-		name := strings.TrimSpace(scanner.Text())
-		if name == "" {
-			break
-		}
-
-		fmt.Printf("Path to %s: ", name)
-		scanner.Scan()
-		path := strings.TrimSpace(scanner.Text())
-		path = expandHome(path)
-
-		repos = append(repos, Repo{Name: name, Path: path})
-	}
-
-	if len(repos) == 0 {
-		fmt.Println("No repos added. Exiting.")
-		os.Exit(1)
-	}
-
-	cfg := Config{Project: project, Repos: repos}
-	data, err := json.MarshalIndent(cfg, "", "  ")
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "error: %v\n", err)
-		os.Exit(1)
-	}
-
-	if err := os.WriteFile(configFile, data, 0644); err != nil {
-		fmt.Fprintf(os.Stderr, "error writing config: %v\n", err)
-		os.Exit(1)
-	}
-
-	fmt.Println()
-	fmt.Printf("Created %s\n", configFile)
-}
-
-func cmdApply() {
-	cfg := loadConfig()
+func cmdApply(paths []string) {
 	thraggDir := thraggRoot()
 
-	for _, repo := range cfg.Repos {
-		path := expandHome(repo.Path)
+	for _, path := range paths {
+		path = expandHome(path)
 		if _, err := os.Stat(path); os.IsNotExist(err) {
 			fmt.Printf("Warning: %s does not exist, skipping.\n", path)
 			continue
@@ -143,41 +69,17 @@ func cmdApply() {
 	fmt.Println("Done.")
 }
 
-func cmdList() {
-	cfg := loadConfig()
-	fmt.Printf("Project: %s\n\n", cfg.Project)
-	for _, r := range cfg.Repos {
-		fmt.Printf("  %s: %s\n", r.Name, r.Path)
-	}
-}
-
-func loadConfig() Config {
-	data, err := os.ReadFile(configFile)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "No .thragg.json found. Run: thragg init")
-		os.Exit(1)
-	}
-	var cfg Config
-	if err := json.Unmarshal(data, &cfg); err != nil {
-		fmt.Fprintf(os.Stderr, "error parsing config: %v\n", err)
-		os.Exit(1)
-	}
-	return cfg
-}
-
 func thraggRoot() string {
 	exe, err := os.Executable()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error resolving executable: %v\n", err)
 		os.Exit(1)
 	}
-	// Resolve symlinks so we get the real path
 	exe, err = filepath.EvalSymlinks(exe)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error resolving symlink: %v\n", err)
 		os.Exit(1)
 	}
-	// bin/thragg -> bin -> thragg root
 	return filepath.Dir(filepath.Dir(exe))
 }
 
