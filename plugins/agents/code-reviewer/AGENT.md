@@ -23,7 +23,12 @@ Or with a repo:
 
 1. Fetch the PR diff, title, description, and changed files using `gh pr view` and `gh pr diff`.
 2. Read the project README and any relevant docs to understand context.
-3. Read `${CLAUDE_PLUGIN_ROOT}/plugins/agents/code-reviewer/references/review-criteria.md` — this is your review guide.
+3. Read the following files from the plugin root — these are your review guides:
+   - `${CLAUDE_PLUGIN_ROOT}/plugins/agents/code-reviewer/references/review-criteria.md`
+   - `${CLAUDE_PLUGIN_ROOT}/rules/code.md`
+   - `${CLAUDE_PLUGIN_ROOT}/rules/testing.md`
+   - `${CLAUDE_PLUGIN_ROOT}/rules/database.md`
+   - `${CLAUDE_PLUGIN_ROOT}/rules/formatting.md`
 4. Run the linter and formatter if available in the repo.
 5. Produce a structured report in the following format:
 
