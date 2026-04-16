@@ -4,9 +4,11 @@ set -e
 INSTALL_DIR="/usr/local/bin"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "Installing thragg CLI..."
+echo "Building thragg..."
+cd "$SCRIPT_DIR"
+go build -o bin/thragg .
 
-chmod +x "$SCRIPT_DIR/bin/thragg"
+echo "Installing..."
 ln -sf "$SCRIPT_DIR/bin/thragg" "$INSTALL_DIR/thragg"
 
 echo ""
