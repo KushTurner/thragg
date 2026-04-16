@@ -1,0 +1,15 @@
+# Place this at .github/actions/<action-name>/action.yml
+# Reference it in any workflow with: uses: ./.github/actions/<action-name>
+
+name: Setup Go
+description: Checkout and set up Go with caching
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-go@v5
+      with:
+        go-version-file: go.mod
+        cache: true
