@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"strings"
 )
 
 func main() {
@@ -14,12 +13,8 @@ func main() {
 	}
 
 	switch os.Args[1] {
-	case "apply":
-		if len(os.Args) < 3 {
-			fmt.Fprintln(os.Stderr, "Usage: thragg apply <repo-path> [repo-path ...]")
-			os.Exit(1)
-		}
-		cmdApply(os.Args[2:])
+	case "init":
+		cmdInit()
 	default:
 		usage()
 		os.Exit(1)
@@ -30,42 +25,37 @@ func usage() {
 	fmt.Println("Usage: thragg <command>")
 	fmt.Println()
 	fmt.Println("Commands:")
-	fmt.Println("  apply <repo-path> [repo-path ...]   Copy CLAUDE.md, settings.json, and rules/ into each repo")
+	fmt.Println("  init   Copy CLAUDE.md, settings.json, and rules/ into the current directory")
 }
 
-func cmdApply(paths []string) {
+func cmdInit() {
 	thraggDir := thraggRoot()
 
-	for _, path := range paths {
-		path = expandHome(path)
-		if _, err := os.Stat(path); os.IsNotExist(err) {
-			fmt.Printf("Warning: %s does not exist, skipping.\n", path)
-			continue
-		}
-
-		fmt.Printf("Applying to %s...\n", path)
-
-		copyFile(
-			filepath.Join(thraggDir, "CLAUDE.md"),
-			filepath.Join(path, "CLAUDE.md"),
-		)
-
-		if err := os.MkdirAll(filepath.Join(path, ".claude"), 0755); err != nil {
-			fmt.Fprintf(os.Stderr, "error: %v\n", err)
-			os.Exit(1)
-		}
-		copyFile(
-			filepath.Join(thraggDir, ".claude", "settings.json"),
-			filepath.Join(path, ".claude", "settings.json"),
-		)
-
-		copyDir(
-			filepath.Join(thraggDir, "rules"),
-			filepath.Join(path, "rules"),
-		)
+	cwd, err := os.Getwd()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error getting current directory: %v\n", err)
+		os.Exit(1)
 	}
 
-	fmt.Println()
+	copyFile(
+		filepath.Join(thraggDir, "CLAUDE.md"),
+		filepath.Join(cwd, "CLAUDE.md"),
+	)
+
+	if err := os.MkdirAll(filepath.Join(cwd, ".claude"), 0755); err != nil {
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		os.Exit(1)
+	}
+	copyFile(
+		filepath.Join(thraggDir, ".claude", "settings.json"),
+		filepath.Join(cwd, ".claude", "settings.json"),
+	)
+
+	copyDir(
+		filepath.Join(thraggDir, "rules"),
+		filepath.Join(cwd, "rules"),
+	)
+
 	fmt.Println("Done.")
 }
 
@@ -83,13 +73,6 @@ func thraggRoot() string {
 	return filepath.Dir(filepath.Dir(exe))
 }
 
-func expandHome(path string) string {
-	if strings.HasPrefix(path, "~/") {
-		home, _ := os.UserHomeDir()
-		return filepath.Join(home, path[2:])
-	}
-	return path
-}
 
 func copyFile(src, dst string) {
 	data, err := os.ReadFile(src)

@@ -13,10 +13,11 @@ This builds the binary and symlinks it to `/usr/local/bin/thragg`.
 ## Usage
 
 ```bash
-thragg apply ~/projects/repo1 ~/projects/repo2
+cd ~/projects/my-repo
+thragg init
 ```
 
-Copies `CLAUDE.md`, `.claude/settings.json`, and `rules/` into each repo.
+Copies `CLAUDE.md`, `.claude/settings.json`, and `rules/` into the current directory.
 
 ## Repo-specific settings
 
