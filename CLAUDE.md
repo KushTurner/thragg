@@ -5,3 +5,4 @@
 @rules/cli.md
 @rules/secrets.md
 @rules/code.md
+@rules/testing.md
