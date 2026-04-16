@@ -4,3 +4,4 @@
 @rules/prs.md
 @rules/cli.md
 @rules/secrets.md
+@rules/code.md
