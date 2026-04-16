@@ -25,6 +25,8 @@ Check if `./CLAUDE.md` exists in the current repo.
   @rules/code.md
   @rules/testing.md
   @rules/formatting.md
+  @rules/database.md
+  @rules/deployment.md
   ```
 - If it **does** exist, check whether it already imports the thragg rules (look for `@rules/commits.md`). If not, append the following block to the end of the file:
   ```
@@ -38,6 +40,8 @@ Check if `./CLAUDE.md` exists in the current repo.
   @rules/code.md
   @rules/testing.md
   @rules/formatting.md
+  @rules/database.md
+  @rules/deployment.md
   ```
 
 ## 3. Merge settings.json

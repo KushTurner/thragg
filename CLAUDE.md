@@ -7,3 +7,5 @@
 @rules/code.md
 @rules/testing.md
 @rules/formatting.md
+@rules/database.md
+@rules/deployment.md
