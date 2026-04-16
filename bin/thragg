@@ -3,12 +3,15 @@ set -e
 
 THRAGG_CONFIG=".thragg.json"
 
+THRAGG_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && cd .. && pwd)"
+
 usage() {
   echo "Usage: thragg <command>"
   echo ""
   echo "Commands:"
-  echo "  init    Set up thragg for the current project"
-  echo "  list    Show configured repos for this project"
+  echo "  init     Set up thragg for the current project"
+  echo "  apply    Copy CLAUDE.md and .claude/settings.json into each configured repo"
+  echo "  list     Show configured repos for this project"
 }
 
 cmd_init() {
@@ -74,8 +77,44 @@ for r in config['repos']:
 "
 }
 
+cmd_apply() {
+  if [[ ! -f "$THRAGG_CONFIG" ]]; then
+    echo "No .thragg.json found. Run: thragg init"
+    exit 1
+  fi
+
+  mapfile -t repo_paths < <(python3 -c "
+import json
+with open('$THRAGG_CONFIG') as f:
+    config = json.load(f)
+for r in config['repos']:
+    print(r['path'])
+")
+
+  for repo in "${repo_paths[@]}"; do
+    repo="${repo/#\~/$HOME}"
+    if [[ ! -d "$repo" ]]; then
+      echo "Warning: $repo does not exist, skipping."
+      continue
+    fi
+
+    echo "Applying to $repo..."
+    cp "$THRAGG_DIR/CLAUDE.md" "$repo/CLAUDE.md"
+    mkdir -p "$repo/.claude"
+    cp "$THRAGG_DIR/.claude/settings.json" "$repo/.claude/settings.json"
+
+    # Copy rules directory so @rules/... imports resolve
+    cp -r "$THRAGG_DIR/rules" "$repo/rules"
+  done
+
+  echo ""
+  echo "Done. CLAUDE.md, .claude/settings.json, and rules/ copied to all repos."
+  echo "Add rules/ and CLAUDE.md to each repo's .gitignore if you don't want them committed."
+}
+
 case "${1:-}" in
   init) cmd_init ;;
+  apply) cmd_apply ;;
   list) cmd_list ;;
   *) usage ;;
 esac
