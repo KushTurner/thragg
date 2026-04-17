@@ -42,8 +42,8 @@ Writes tests for existing code following the project's testing rules. Focuses on
 
 ## Rules
 
-- `${CLAUDE_PLUGIN_ROOT}/rules/testing.md` — governs all test decisions
-- `${CLAUDE_PLUGIN_ROOT}/rules/code.md` — tests are code too
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/testing.md` — governs all test decisions
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/code.md` — tests are code too
 
 ## References
 

@@ -62,11 +62,11 @@ For each repo, raise a PR using `gh pr create` with:
 
 ## Rules
 
-- `${CLAUDE_PLUGIN_ROOT}/rules/commits.md` — branch naming and commit messages
-- `${CLAUDE_PLUGIN_ROOT}/rules/prs.md` — PR descriptions must explain why
-- `${CLAUDE_PLUGIN_ROOT}/rules/code.md` — follow existing conventions in each repo
-- `${CLAUDE_PLUGIN_ROOT}/rules/testing.md` — add tests for new logic
-- `${CLAUDE_PLUGIN_ROOT}/rules/secrets.md` — never hardcode secrets
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/commits.md` — branch naming and commit messages
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/prs.md` — PR descriptions must explain why
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/code.md` — follow existing conventions in each repo
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/testing.md` — add tests for new logic
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/secrets.md` — never hardcode secrets
 
 ## Common mistakes
 

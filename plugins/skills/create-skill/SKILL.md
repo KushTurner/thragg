@@ -64,7 +64,7 @@ Numbered steps Claude follows when running this skill.
 
 ## Rules (optional)
 Links to rule files this skill reads and applies:
-- `${CLAUDE_PLUGIN_ROOT}/rules/example.md` — short description
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/example.md` — short description
 
 ## References (optional)
 Links to reference files in the references/ folder:

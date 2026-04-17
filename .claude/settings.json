@@ -21,7 +21,8 @@
       "Bash(make *)",
       "Bash(docker *)",
       "Bash(docker compose *)",
-      "Bash(curl *)"
+      "Bash(curl *)",
+      "Bash(gh *)"
     ],
     "deny": [
       "Bash(git push --force*)",

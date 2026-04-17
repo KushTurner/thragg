@@ -30,14 +30,14 @@ When you want a thorough review of a PR before merging. Works best on small, foc
 2. Read the project README and any relevant docs to understand context before reviewing.
 3. Read the following guides from the plugin root:
    - `${CLAUDE_PLUGIN_ROOT}/plugins/agents/code-reviewer/references/review-criteria.md`
-   - `${CLAUDE_PLUGIN_ROOT}/rules/code.md`
-   - `${CLAUDE_PLUGIN_ROOT}/rules/testing.md`
-   - `${CLAUDE_PLUGIN_ROOT}/rules/database.md`
-   - `${CLAUDE_PLUGIN_ROOT}/rules/formatting.md`
-   - `${CLAUDE_PLUGIN_ROOT}/rules/secrets.md`
-   - `${CLAUDE_PLUGIN_ROOT}/rules/dependencies.md`
-   - `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md`
-   - `${CLAUDE_PLUGIN_ROOT}/rules/commits.md`
+   - `${CLAUDE_PLUGIN_ROOT}/.claude/rules/code.md`
+   - `${CLAUDE_PLUGIN_ROOT}/.claude/rules/testing.md`
+   - `${CLAUDE_PLUGIN_ROOT}/.claude/rules/database.md`
+   - `${CLAUDE_PLUGIN_ROOT}/.claude/rules/formatting.md`
+   - `${CLAUDE_PLUGIN_ROOT}/.claude/rules/secrets.md`
+   - `${CLAUDE_PLUGIN_ROOT}/.claude/rules/dependencies.md`
+   - `${CLAUDE_PLUGIN_ROOT}/.claude/rules/deployment.md`
+   - `${CLAUDE_PLUGIN_ROOT}/.claude/rules/commits.md`
 4. Run the linter and formatter if available in the repo.
 5. Produce a structured report:
 

@@ -62,8 +62,8 @@ Cache dependencies and build layers to keep pipelines fast. Docker layer caching
 
 ## Rules
 
-- `${CLAUDE_PLUGIN_ROOT}/rules/dependencies.md` — always look up latest versions before use
-- `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md` — Docker guidelines
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/dependencies.md` — always look up latest versions before use
+- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/deployment.md` — Docker guidelines
 
 ## References
 
