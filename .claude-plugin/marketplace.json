@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Sync shared Claude agent rules and settings into any repo",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "trg",
       "source": "./plugins/trg/",
       "description": "Shared rules, skills, and agents for consistent Claude behaviour across repos",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "KushTurner",
         "url": "https://github.com/KushTurner"
