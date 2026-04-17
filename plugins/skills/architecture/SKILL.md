@@ -8,6 +8,11 @@ description: Review or plan software architecture following project principles
 
 Helps review or plan software architecture decisions. Applies a set of guiding principles focused on simplicity, statelessness, and avoiding premature complexity.
 
+## Tools
+
+- `Read` — reading existing codebase and docs for context
+- `WebSearch` — looking up patterns or technology trade-offs when needed
+
 ## When to use
 
 - Starting a new project and deciding on the initial stack or structure
@@ -24,20 +29,7 @@ Helps review or plan software architecture decisions. Applies a set of guiding p
 - "We're getting slow queries, should I add Redis?"
 - "Review the architecture of this service"
 
-## Rules to apply
-
-- `${CLAUDE_PLUGIN_ROOT}/rules/database.md` — data access and DB technology choices
-- `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md` — Docker and local dev requirements
-
-## Steps
-
-1. Ask what the user is building or deciding, if not already clear from context.
-2. Identify any proposed or existing components that are premature given the current stage.
-3. Suggest the simplest architecture that solves the problem.
-4. Flag areas where complexity may be needed later, so the current design leaves room without over-engineering now.
-5. If reviewing existing architecture, call out what is working well and what could be simplified.
-
-## Principles to apply
+## Principles
 
 **Start simple, expand later**
 Don't introduce infrastructure (caching, Redis, queues, CDNs, etc.) until there is a clear, demonstrated need. No users yet means no need for scale.
@@ -50,6 +42,19 @@ Frameworks are fine when they add genuine value. Don't build everything around o
 
 **Complexity budget**
 Every added component has a maintenance cost. Only introduce it when the problem genuinely requires it.
+
+## Steps
+
+1. Ask what the user is building or deciding, if not already clear from context.
+2. Identify any proposed or existing components that are premature given the current stage.
+3. Suggest the simplest architecture that solves the problem.
+4. Flag areas where complexity may be needed later, so the current design leaves room without over-engineering now.
+5. If reviewing existing architecture, call out what is working well and what could be simplified.
+
+## Rules
+
+- `${CLAUDE_PLUGIN_ROOT}/rules/database.md` — data access and DB technology choices
+- `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md` — Docker and local dev requirements
 
 ## Common mistakes
 

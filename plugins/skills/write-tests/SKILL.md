@@ -8,6 +8,12 @@ description: Write tests for existing code following project testing principles
 
 Writes tests for existing code following the project's testing rules. Focuses on real logic over mocks, arrange/act/assert structure, isolated state, and deterministic outcomes. Tests should give you confidence, not just coverage numbers.
 
+## Tools
+
+- `Read` — reading the code to be tested and existing test patterns in the repo
+- `Write` / `Edit` — writing new tests
+- `Bash` — running tests to verify they pass
+
 ## When to use
 
 - Adding tests to existing untested code
@@ -26,23 +32,23 @@ Writes tests for existing code following the project's testing rules. Focuses on
 
 ## Steps
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/rules/testing.md` — this governs all test decisions.
-2. Read the code to be tested. Understand what it does before writing anything.
-3. Identify what is worth testing — real logic, edge cases, error paths. Skip trivial getters, framework behaviour, and things that cannot fail.
-4. Check what testing tools and libraries are already used in the repo and follow them. Don't introduce a new testing framework.
-5. Check if the project uses Testcontainers or has real service dependencies — use them if available rather than mocking.
-6. Write tests following arrange / act / assert. Each test: one clear outcome, no shared state, deterministic.
+1. Read the code to be tested. Understand what it does before writing anything.
+2. Check what testing tools and libraries are already used in the repo — follow them, don't introduce new ones.
+3. Check if the project uses Testcontainers or has real service dependencies — use them rather than mocking.
+4. Identify what is worth testing: real logic, edge cases, error paths. Skip trivial getters, framework behaviour, and things that cannot fail.
+5. Write tests following arrange / act / assert. Each test: one clear outcome, no shared state, deterministic.
+6. Run the tests and confirm they pass.
 7. Ask the user to review before finalising.
+
+## Rules
+
+- `${CLAUDE_PLUGIN_ROOT}/rules/testing.md` — governs all test decisions
+- `${CLAUDE_PLUGIN_ROOT}/rules/code.md` — tests are code too
 
 ## References
 
 - `references/go_test.go` — Go test patterns with Testcontainers and Testify
 - `references/example.test.ts` — TypeScript test patterns with Vitest and Testcontainers
-
-## Rules to apply
-
-- `${CLAUDE_PLUGIN_ROOT}/rules/testing.md`
-- `${CLAUDE_PLUGIN_ROOT}/rules/code.md` — tests are code too
 
 ## Common mistakes
 

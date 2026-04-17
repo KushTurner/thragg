@@ -8,6 +8,12 @@ description: Set up or review a GitHub Actions CI/CD pipeline
 
 Sets up or reviews a GitHub Actions pipeline following project principles. Keeps pipelines simple, fast, and focused on a quick feedback loop.
 
+## Tools
+
+- `WebSearch` / `WebFetch` — looking up latest versions of actions and tools before use
+- `Read` / `Write` — reading existing workflows, writing new ones
+- `Bash` — checking what's already set up in the repo
+
 ## When to use
 
 - Setting up CI/CD for a new repo
@@ -46,13 +52,18 @@ Cache dependencies and build layers to keep pipelines fast. Docker layer caching
 
 ## Steps
 
-1. Before writing any workflow, look up the latest versions of all actions and tools being used — follow `${CLAUDE_PLUGIN_ROOT}/rules/dependencies.md`. Never assume a version from memory. Also read `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md` for Docker guidelines.
+1. Look up the latest versions of all actions and tools before writing anything — never assume a version from memory.
 2. Ask what the project does and what stack it uses, if not already clear.
 3. Ask what workflows are needed (PR, main branch, release, deploy, etc.).
 4. Check if `.github/workflows/` already exists and review any existing workflows.
-5. Generate the appropriate workflow files using the references in this skill as a starting point.
+5. Generate the appropriate workflow files using the references as a starting point.
 6. Suggest caching strategies appropriate for the stack.
 7. Flag any existing workflows that are overly complex or could be simplified.
+
+## Rules
+
+- `${CLAUDE_PLUGIN_ROOT}/rules/dependencies.md` — always look up latest versions before use
+- `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md` — Docker guidelines
 
 ## References
 

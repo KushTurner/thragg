@@ -4,17 +4,22 @@
 
 Autonomously reviews a pull request against project rules and coding principles. Produces a structured report with severity-tagged issues directly in Claude — no GitHub context switching required.
 
+## Tools
+
+- `Bash` — `gh pr view` and `gh pr diff` to fetch PR data, running linter/formatter
+- `Read` — reading project README, docs, and existing code for context
+- `WebSearch` — looking up anything uncertain rather than guessing
+
 ## When to use
 
 When you want a thorough review of a PR before merging. Works best on small, focused PRs — flag if the PR is too large to review meaningfully.
 
-## Usage
+## Examples
 
 ```
 /thragg:code-reviewer <PR number>
 ```
 
-Or with a repo:
 ```
 /thragg:code-reviewer <owner>/<repo>#<PR number>
 ```
@@ -22,8 +27,8 @@ Or with a repo:
 ## Steps
 
 1. Fetch the PR diff, title, description, and changed files using `gh pr view` and `gh pr diff`.
-2. Read the project README and any relevant docs to understand context.
-3. Read the following files from the plugin root — these are your review guides:
+2. Read the project README and any relevant docs to understand context before reviewing.
+3. Read the following guides from the plugin root:
    - `${CLAUDE_PLUGIN_ROOT}/plugins/agents/code-reviewer/references/review-criteria.md`
    - `${CLAUDE_PLUGIN_ROOT}/rules/code.md`
    - `${CLAUDE_PLUGIN_ROOT}/rules/testing.md`
@@ -34,7 +39,7 @@ Or with a repo:
    - `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md`
    - `${CLAUDE_PLUGIN_ROOT}/rules/commits.md`
 4. Run the linter and formatter if available in the repo.
-5. Produce a structured report in the following format:
+5. Produce a structured report:
 
 ---
 
@@ -63,7 +68,6 @@ What was done well.
 ---
 
 **Checklist**
-A checkbox list of every issue raised, for tracking:
 - [ ] 🔴 `path/to/file.ts:42` — description
 - [ ] 🟡 `path/to/file.ts:87` — description
 
@@ -76,4 +80,4 @@ A checkbox list of every issue raised, for tracking:
 - Reviewing without reading the README or existing code for context first
 - Posting to GitHub — keep everything in Claude
 - Flagging style issues that the linter/formatter should catch instead
-- Stating opinions as facts — if uncertain, say so
+- Stating opinions as facts — if uncertain, use WebSearch or say so

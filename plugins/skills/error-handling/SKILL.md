@@ -8,6 +8,11 @@ description: Review or write error handling following best practices
 
 Reviews or writes error handling code following established best practices. Errors should be explicit, carry context as they propagate, and be handled at exactly one layer — never swallowed, never duplicated.
 
+## Tools
+
+- `Read` — reading existing code to review error handling
+- `Edit` — fixing error handling issues in place
+
 ## When to use
 
 - Writing new error handling in any language
@@ -37,7 +42,15 @@ Either log the error or return it — never both. Logging and returning causes t
 **Never panic for expected errors**
 Panic is for truly unexpected states. Return errors for anything a caller could reasonably handle or recover from.
 
-## Language-specific references
+## Steps
+
+1. Read the code being reviewed or written.
+2. Identify any violations of the principles above.
+3. For each issue, explain what is wrong and why it matters before suggesting a fix.
+4. Apply fixes, preferring the language's idiomatic error handling patterns.
+5. Check the references for language-specific patterns if needed.
+
+## References
 
 - `references/go.go` — Go error handling patterns and anti-patterns
 
