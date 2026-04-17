@@ -1,0 +1,44 @@
+{
+  "name": "thragg",
+  "owner": {
+    "name": "KushTurner",
+    "url": "https://github.com/KushTurner"
+  },
+  "metadata": {
+    "description": "Sync shared Claude agent rules and settings into any repo",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "trg",
+      "source": "./plugins/trg/",
+      "description": "Shared rules, skills, and agents for consistent Claude behaviour across repos",
+      "version": "1.0.0",
+      "author": {
+        "name": "KushTurner",
+        "url": "https://github.com/KushTurner"
+      },
+      "homepage": "https://github.com/KushTurner/thragg",
+      "repository": "https://github.com/KushTurner/thragg",
+      "keywords": [
+        "rules",
+        "skills",
+        "agents",
+        "workflow"
+      ],
+      "category": "workflows",
+      "skills": [
+        "./skills/init",
+        "./skills/write-tests",
+        "./skills/error-handling",
+        "./skills/architecture",
+        "./skills/create-skill",
+        "./skills/ci-pipeline"
+      ],
+      "agents": [
+        "./agents/code-reviewer",
+        "./agents/feature"
+      ]
+    }
+  ]
+}
