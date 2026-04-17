@@ -15,7 +15,7 @@ Add the marketplace and install the plugin:
 Run this in any repo you want to set up:
 
 ```
-/thragg:init
+/trg:init
 ```
 
 This will:
