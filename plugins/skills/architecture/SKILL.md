@@ -24,6 +24,11 @@ Helps review or plan software architecture decisions. Applies a set of guiding p
 - "We're getting slow queries, should I add Redis?"
 - "Review the architecture of this service"
 
+## Rules to apply
+
+- `${CLAUDE_PLUGIN_ROOT}/rules/database.md` — data access and DB technology choices
+- `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md` — Docker and local dev requirements
+
 ## Steps
 
 1. Ask what the user is building or deciding, if not already clear from context.

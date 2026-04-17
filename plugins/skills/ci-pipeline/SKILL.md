@@ -46,7 +46,7 @@ Cache dependencies and build layers to keep pipelines fast. Docker layer caching
 
 ## Steps
 
-1. Before writing any workflow, look up the latest versions of all actions and tools being used — follow `rules/dependencies.md`. Never assume a version from memory.
+1. Before writing any workflow, look up the latest versions of all actions and tools being used — follow `${CLAUDE_PLUGIN_ROOT}/rules/dependencies.md`. Never assume a version from memory. Also read `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md` for Docker guidelines.
 2. Ask what the project does and what stack it uses, if not already clear.
 3. Ask what workflows are needed (PR, main branch, release, deploy, etc.).
 4. Check if `.github/workflows/` already exists and review any existing workflows.

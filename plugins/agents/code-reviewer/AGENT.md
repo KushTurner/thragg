@@ -29,6 +29,10 @@ Or with a repo:
    - `${CLAUDE_PLUGIN_ROOT}/rules/testing.md`
    - `${CLAUDE_PLUGIN_ROOT}/rules/database.md`
    - `${CLAUDE_PLUGIN_ROOT}/rules/formatting.md`
+   - `${CLAUDE_PLUGIN_ROOT}/rules/secrets.md`
+   - `${CLAUDE_PLUGIN_ROOT}/rules/dependencies.md`
+   - `${CLAUDE_PLUGIN_ROOT}/rules/deployment.md`
+   - `${CLAUDE_PLUGIN_ROOT}/rules/commits.md`
 4. Run the linter and formatter if available in the repo.
 5. Produce a structured report in the following format:
 
