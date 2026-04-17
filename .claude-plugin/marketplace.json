@@ -36,8 +36,8 @@
         "./skills/ci-pipeline"
       ],
       "agents": [
-        "./agents/code-reviewer",
-        "./agents/feature"
+        "./agents/code-reviewer/AGENT.md",
+        "./agents/feature/AGENT.md"
       ]
     }
   ]
