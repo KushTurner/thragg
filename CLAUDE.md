@@ -1,12 +1,12 @@
 # Thragg — Shared Rules
 
-@.claude/rules/commits.md
-@.claude/rules/prs.md
-@.claude/rules/cli.md
-@.claude/rules/secrets.md
-@.claude/rules/code.md
-@.claude/rules/testing.md
-@.claude/rules/formatting.md
-@.claude/rules/database.md
-@.claude/rules/deployment.md
-@.claude/rules/dependencies.md
+@plugins/trg/rules/commits.md
+@plugins/trg/rules/prs.md
+@plugins/trg/rules/cli.md
+@plugins/trg/rules/secrets.md
+@plugins/trg/rules/code.md
+@plugins/trg/rules/testing.md
+@plugins/trg/rules/formatting.md
+@plugins/trg/rules/database.md
+@plugins/trg/rules/deployment.md
+@plugins/trg/rules/dependencies.md

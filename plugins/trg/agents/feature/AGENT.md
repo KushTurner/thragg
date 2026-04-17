@@ -18,7 +18,7 @@ When implementing a new feature that spans one or more repos — e.g. a backend 
 ## Examples
 
 ```
-/thragg:feature
+/trg:feature
 ```
 
 - "Add a notifications feature to the API and frontend"
@@ -62,11 +62,11 @@ For each repo, raise a PR using `gh pr create` with:
 
 ## Rules
 
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/commits.md` — branch naming and commit messages
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/prs.md` — PR descriptions must explain why
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/code.md` — follow existing conventions in each repo
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/testing.md` — add tests for new logic
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/secrets.md` — never hardcode secrets
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/commits.md` — branch naming and commit messages
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/prs.md` — PR descriptions must explain why
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/code.md` — follow existing conventions in each repo
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/testing.md` — add tests for new logic
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/secrets.md` — never hardcode secrets
 
 ## Common mistakes
 

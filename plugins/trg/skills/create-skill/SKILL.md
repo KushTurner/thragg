@@ -20,7 +20,7 @@ When you want to add a new slash command to thragg — for example a code review
 ## Examples
 
 ```
-/thragg:create-skill
+/trg:create-skill
 ```
 
 - "Create a skill for reviewing pull requests"
@@ -30,9 +30,9 @@ When you want to add a new slash command to thragg — for example a code review
 
 1. Ask the user what the skill should do and when it should be invoked, if not already clear.
 2. Confirm the skill name — it must be kebab-cased (e.g. `review-pr`, `write-commit`).
-3. Create the folder at `plugins/skills/<skill-name>/`.
-4. Write `plugins/skills/<skill-name>/SKILL.md` using the structure below.
-5. If the skill benefits from reference code or examples, create a `plugins/skills/<skill-name>/references/` folder and add the relevant files there. Reference them in the skill.
+3. Create the folder at `plugins/trg/skills/<skill-name>/`.
+4. Write `plugins/trg/skills/<skill-name>/SKILL.md` using the structure below.
+5. If the skill benefits from reference code or examples, create a `plugins/trg/skills/<skill-name>/references/` folder and add the relevant files there. Reference them in the skill.
 6. Ask the user if the new skill should be committed.
 
 ## SKILL.md structure
@@ -64,7 +64,7 @@ Numbered steps Claude follows when running this skill.
 
 ## Rules (optional)
 Links to rule files this skill reads and applies:
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/example.md` — short description
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/example.md` — short description
 
 ## References (optional)
 Links to reference files in the references/ folder:
