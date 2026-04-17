@@ -23,7 +23,7 @@ Writes tests for existing code following the project's testing rules. Focuses on
 ## Examples
 
 ```
-/thragg:write-tests
+/trg:write-tests
 ```
 
 - "Write tests for the payment service"
@@ -42,8 +42,8 @@ Writes tests for existing code following the project's testing rules. Focuses on
 
 ## Rules
 
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/testing.md` — governs all test decisions
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/code.md` — tests are code too
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/testing.md` — governs all test decisions
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/code.md` — tests are code too
 
 ## References
 

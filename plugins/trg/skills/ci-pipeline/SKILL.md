@@ -23,7 +23,7 @@ Sets up or reviews a GitHub Actions pipeline following project principles. Keeps
 ## Examples
 
 ```
-/thragg:ci-pipeline
+/trg:ci-pipeline
 ```
 
 - "Set up a CI pipeline for this Go project"
@@ -62,8 +62,8 @@ Cache dependencies and build layers to keep pipelines fast. Docker layer caching
 
 ## Rules
 
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/dependencies.md` — always look up latest versions before use
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/deployment.md` — Docker guidelines
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/dependencies.md` — always look up latest versions before use
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/deployment.md` — Docker guidelines
 
 ## References
 

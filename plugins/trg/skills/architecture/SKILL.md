@@ -22,7 +22,7 @@ Helps review or plan software architecture decisions. Applies a set of guiding p
 ## Examples
 
 ```
-/thragg:architecture
+/trg:architecture
 ```
 
 - "I'm building a notifications feature, should I use WebSockets or polling?"
@@ -53,8 +53,8 @@ Every added component has a maintenance cost. Only introduce it when the problem
 
 ## Rules
 
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/database.md` — data access and DB technology choices
-- `${CLAUDE_PLUGIN_ROOT}/.claude/rules/deployment.md` — Docker and local dev requirements
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/database.md` — data access and DB technology choices
+- `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/deployment.md` — Docker and local dev requirements
 
 ## Common mistakes
 

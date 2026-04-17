@@ -22,7 +22,7 @@ Reviews or writes error handling code following established best practices. Erro
 ## Examples
 
 ```
-/thragg:error-handling
+/trg:error-handling
 ```
 
 - "Review the error handling in this file"

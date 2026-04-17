@@ -20,14 +20,14 @@ When setting up a repo with thragg for the first time, or when re-syncing a repo
 ## Examples
 
 ```
-/thragg:init
+/trg:init
 ```
 
 Run this in the root of the repo you want to set up.
 
 ## Steps
 
-1. Copy every file from `${CLAUDE_PLUGIN_ROOT}/.claude/rules/` into `./.claude/rules/`, creating the directory if needed. Overwrite existing files — thragg owns these.
+1. Copy every file from `${CLAUDE_PLUGIN_ROOT}/plugins/trg/rules/` into `./.claude/rules/`, creating the directory if needed. Overwrite existing files — thragg owns these.
 2. Check if `./CLAUDE.md` exists.
    - If it does **not** exist, create it:
      ```
@@ -60,7 +60,7 @@ Run this in the root of the repo you want to set up.
      @.claude/rules/deployment.md
      @.claude/rules/dependencies.md
      ```
-3. Read the permissions block from `${CLAUDE_PLUGIN_ROOT}/.claude/settings.json`. Check if `./.claude/settings.json` exists.
+3. Read the permissions block from `${CLAUDE_PLUGIN_ROOT}/plugins/trg/settings.json`. Check if `./.claude/settings.json` exists.
    - If it does **not** exist, create `.claude/` and write the permissions block as the full file.
    - If it **does** exist, merge: add any allow/deny entries not already present. Preserve all other keys (e.g. `mcpServers`) exactly as they are.
 4. Tell the user what was created or updated.

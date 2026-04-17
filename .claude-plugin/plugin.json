@@ -1,12 +1,12 @@
 {
-  "name": "thragg",
+  "name": "trg",
   "description": "Sync shared Claude agent rules and settings into any repo",
   "version": "1.0.0",
   "author": {
     "name": "KushTurner"
   },
   "repository": "https://github.com/KushTurner/thragg",
-  "skills": "plugins/skills",
-  "agents": "plugins/agents",
-  "hooks": "plugins/hooks"
+  "skills": "plugins/trg/skills",
+  "agents": "plugins/trg/agents",
+  "hooks": "plugins/trg/hooks"
 }
