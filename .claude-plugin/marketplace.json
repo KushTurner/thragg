@@ -38,7 +38,69 @@
       "agents": [
         "./agents/code-reviewer/AGENT.md",
         "./agents/feature/AGENT.md"
-      ]
+      ],
+      "settings": {
+        "permissions": {
+          "allow": [
+            "Bash(git *)",
+            "Bash(ls*)",
+            "Bash(cat *)",
+            "Bash(mkdir *)",
+            "Bash(cp *)",
+            "Bash(mv *)",
+            "Bash(rg *)",
+            "Bash(grep *)",
+            "Bash(fd *)",
+            "Bash(find *)",
+            "Bash(jq *)",
+            "Bash(head *)",
+            "Bash(tail *)",
+            "Bash(wc *)",
+            "Bash(diff *)",
+            "Bash(tree *)",
+            "Bash(which *)",
+            "Bash(make *)",
+            "Bash(docker *)",
+            "Bash(docker compose *)",
+            "Bash(curl *)",
+            "Bash(gh *)",
+            "Bash(echo *)",
+            "Bash(printf *)",
+            "Bash(sort *)",
+            "Bash(uniq *)",
+            "Bash(cut *)",
+            "Bash(tr *)",
+            "Bash(sed *)",
+            "Bash(awk *)",
+            "Bash(xargs *)",
+            "Bash(tee *)",
+            "Bash(touch *)",
+            "Bash(pwd)",
+            "Bash(date *)",
+            "Bash(stat *)",
+            "Bash(basename *)",
+            "Bash(dirname *)",
+            "Bash(open *)",
+            "Bash(ps *)",
+            "Bash(env)",
+            "Bash(printenv *)"
+          ],
+          "deny": [
+            "Bash(git push --force*)",
+            "Bash(git push -f *)",
+            "Bash(git push -f)",
+            "Bash(git reset --hard*)",
+            "Bash(git clean -fd*)",
+            "Bash(git branch -D*)",
+            "Bash(rm -rf*)",
+            "Bash(chmod 777*)",
+            "Bash(npm publish*)",
+            "Bash(curl *|*)",
+            "Bash(curl *-O *)",
+            "Bash(curl *--output*)"
+          ]
+        }
+      }
     }
   ]
 }
