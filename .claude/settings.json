@@ -6,7 +6,22 @@
       "Bash(cat *)",
       "Bash(mkdir *)",
       "Bash(cp *)",
-      "Bash(mv *)"
+      "Bash(mv *)",
+      "Bash(rg *)",
+      "Bash(grep *)",
+      "Bash(fd *)",
+      "Bash(find *)",
+      "Bash(jq *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(diff *)",
+      "Bash(tree *)",
+      "Bash(which *)",
+      "Bash(make *)",
+      "Bash(docker *)",
+      "Bash(docker compose *)",
+      "Bash(curl *)"
     ],
     "deny": [
       "Bash(git push --force*)",
@@ -17,9 +32,10 @@
       "Bash(git branch -D*)",
       "Bash(rm -rf*)",
       "Bash(chmod 777*)",
-      "Bash(brew install*)",
-      "Bash(brew upgrade*)",
-      "Bash(npm publish*)"
+      "Bash(npm publish*)",
+      "Bash(curl *|*)",
+      "Bash(curl *-O *)",
+      "Bash(curl *--output*)"
     ]
   }
 }
