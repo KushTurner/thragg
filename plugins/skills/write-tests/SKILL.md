@@ -34,6 +34,11 @@ Writes tests for existing code following the project's testing rules. Focuses on
 6. Write tests following arrange / act / assert. Each test: one clear outcome, no shared state, deterministic.
 7. Ask the user to review before finalising.
 
+## References
+
+- `references/go_test.go` — Go test patterns with Testcontainers and Testify
+- `references/example.test.ts` — TypeScript test patterns with Vitest and Testcontainers
+
 ## Rules to apply
 
 - `${CLAUDE_PLUGIN_ROOT}/rules/testing.md`
