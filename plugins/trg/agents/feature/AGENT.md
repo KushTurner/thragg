@@ -54,7 +54,15 @@ On approval, for each repo:
 - Implement the changes following the plan and the project's existing conventions
 - Commit frequently with clear messages following `rules/commits.md`
 
-**5. Raise PRs**
+**5. Write tests**
+For each repo, write tests for the new logic before raising PRs:
+- Read the existing test patterns and tools in use — don't introduce new libraries
+- Identify what is worth testing: real logic, edge cases, error paths
+- Follow arrange / act / assert; one clear assertion per test; no shared state
+- Run the tests and confirm they pass
+- Do not skip this step — untested logic is not shippable
+
+**6. Raise PRs**
 For each repo, raise a PR using `gh pr create` with:
 - A title describing what the PR does
 - A description explaining *why* the change is being made (per `rules/prs.md`)

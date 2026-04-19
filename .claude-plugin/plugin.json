@@ -1,7 +1,7 @@
 {
   "name": "trg",
   "description": "Sync shared Claude agent rules and settings into any repo",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "author": {
     "name": "KushTurner"
   },
